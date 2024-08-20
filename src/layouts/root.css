@@ -5,7 +5,7 @@
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
-
+  font-style: bold;
 }
 
 .navbar ul {
@@ -17,8 +17,10 @@
 }
 
 .navbar a {
-  color: white; /* Override global link color */
+  color: rgb(0, 0, 0); /* Override global link color */
   text-decoration: none;
+  font-weight: 500;
+  font-style:bold;
 }
 
 .navbar a:hover {

@@ -1,0 +1,40 @@
+.workout-cards {
+  display: flex;
+  flex-wrap: wrap; /* Allow multiple rows if needed */
+  justify-content: space-around; /* Add spacing between cards */
+  padding: 10px; 
+}
+.workout-plan {
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, .2);
+  padding: 20px;
+  margin: 10px;
+  width: 200px; 
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
+  position: relative; /* To position overlay text correctly */
+}
+
+.workout-plan:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.workout-plan h2,
+.workout-plan p {
+  color: white;
+}
+
+.workout-plan h2 {
+  margin-top: 100%; /* Adjust margin as needed */
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.workout-plan p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px; /* Adjust as needed */
+}
