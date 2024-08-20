@@ -14,17 +14,18 @@
   gap: 20px;
   margin: 0;
   padding: 0;
+  
 }
 
 .navbar a {
   color: rgb(0, 0, 0); /* Override global link color */
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
   font-style:bold;
 }
 
 .navbar a:hover {
-  color: #ddd; /* Override hover color */
+  color: #444444; /* Override hover color */
 }
 
 .header {

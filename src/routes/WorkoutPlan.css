@@ -1,34 +1,40 @@
 .workout-cards {
   display: flex;
-  flex-wrap: wrap; /* Allow multiple rows if needed */
-  justify-content: space-around; /* Add spacing between cards */
-  padding: 10px; 
+  justify-content: center; /* Center the carousel itself */
+  align-items: center;
 }
 .workout-plan {
-  border-radius: 8px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, .2);
+  border-radius: 35px;
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, .6);
   padding: 20px;
   margin: 10px;
+  margin-bottom: 10%;
   width: 200px; 
-  height: 300px;
+  height: 350px;
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
   position: relative; /* To position overlay text correctly */
 }
-
+@media (max-width: 768px) {
+  .workout-plan {
+    width: 300px; 
+  height: 400px; /* Adjust width as needed to fit nicely */
+  }
+}
 .workout-plan:hover {
   transform: scale(1.05); /* Slight zoom effect */
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
-
 .workout-plan h2,
 .workout-plan p {
   color: white;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add drop shadow to text */
 }
 
 .workout-plan h2 {
-  margin-top: 100%; /* Adjust margin as needed */
+  margin-top: 100%;
   font-size: 18px;
   margin-bottom: 5px;
 }
@@ -36,5 +42,5 @@
 .workout-plan p {
   font-size: 14px;
   line-height: 1.5;
-  margin-bottom: 20px; /* Adjust as needed */
+
 }
