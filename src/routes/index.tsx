@@ -1,6 +1,6 @@
 // WorkoutPlansContainer.js
-import { useState } from 'react';
-import CalorieCalculator from './CalorieCalculator';
+
+import { useNavigate } from 'react-router-dom';
 import WorkoutPlan from './WorkoutPlan';
 import './WorkoutPlan.css';
 import './index.css'; // Import the CSS file for custom styles
@@ -73,12 +73,10 @@ const workoutPlans = [
 ];
 
 function WorkoutPlansContainer() {
-  const [showCalculator, setShowCalculator] = useState(false);
 
-  const handleShowCalculator = () => setShowCalculator(true);
-  const handleHideCalculator = () => setShowCalculator(false);
 
   const settings = {
+    
     dots: true,
     infinite: true,
     speed: 500,
@@ -114,6 +112,13 @@ function WorkoutPlansContainer() {
     ]
   };
 
+  const navigate = useNavigate();
+
+  const handleShowCalculator = () => {
+    navigate('/calorie-calculator');
+  };
+
+
   return (
     <>
       <div className="intro-container">
@@ -121,11 +126,12 @@ function WorkoutPlansContainer() {
   <span className="custom-text">GetFit</span> with customised Workout Plans
 </h1>
         <h2 className="centered-text">
-          Experience personalized fitness with expertly <br />
-          designed workout plans tailored to your goals and fitness level.<br />
-          Track your progress, stay motivated, and adapt plans to your lifestyle.<br />
+          Experience personalized fitness with expertly 
+          designed workout plans tailored to your goals and fitness level.<br/>
+          Track your progress, stay motivated, and adapt plans to your lifestyle.
         </h2>
         <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
+        <h3 className='left-text'>Explore workouts</h3>
         <Slider {...settings} className="workout-cards">
           {workoutPlans.map(plan => (
             <div key={plan.id}>
@@ -137,11 +143,8 @@ function WorkoutPlansContainer() {
       <div>
         <h2 className="centered-text" ><span className='calcCal'>Calculate Calories and Macro nutrients</span></h2>
         <div className="calculator-button-container">
-          <CalorieButton onClick={handleShowCalculator} />
+        <CalorieButton onClick={handleShowCalculator} />
         </div>
-        {showCalculator && (
-          <CalorieCalculator onClose={handleHideCalculator} />
-        )}
       </div>
     </>
   );

@@ -13,6 +13,7 @@ import ContactPage from './routes/contact'
 import SignInPage from './routes/sign-in'
 import SignUpPage from './routes/sign-up'
 import DashboardPage from './routes/dashboard'
+import CalorieCalculatorPage from './routes/CalorieCalculatorPage'
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,8 @@ const router = createBrowserRouter([
       { path: '/contact', element: <ContactPage /> },
       { path: '/sign-in/*', element: <SignInPage /> },
       { path: '/sign-up/*', element: <SignUpPage /> },
+      { path: '/calorie-calculator', element: <CalorieCalculatorPage /> },
+
       {
         element: <DashboardLayout />,
         path: 'dashboard',

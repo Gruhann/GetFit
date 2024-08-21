@@ -1,133 +1,65 @@
-/* CalorieCalculator.css */
-
-.calorie-calculator-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.calorie-calculator-modal {
-  background: #fff;
-  border-radius: 8px;
-  max-width: 900px;
-  width: 100%;
+/* General container for centering button and other content */
+.calorie-calculator-page {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  animation: fadeIn 0.3s ease-out;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* background-color: #f4f4f4; */
 }
 
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #fff9f9;
-  color: #000000;
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.calcCalHeader {
+  display: flex;
+  justify-content: start; /* Align items horizontally */
+  align-items: start; 
+  padding: 1rem; /* Add padding for spacing */
+}
+.back-button{
+  display: flex;
+  align-items: start;
+  margin:auto;
+}
+
+/* Button Styling */
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 16px;
   border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #000000;
   cursor: pointer;
-  font-size: 18px;
-  transition: transform  .3s ease,background-color;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.close-button:hover {
-  background-color: #f9f7f7;
-  transform: scale(1.05);
+button:hover {
+  background-color: #2c2c2c;
 }
 
-.calorie-calculator-content {
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
+/* Additional styles */
+.hidden {
+  display: none;
 }
 
-.form-container, .results-container {
-  flex: 1;
-  padding: 20px;
-}
-
-.form-container {
-  border-right: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.results-container {
-  padding-left: 20px;
-  border-left: 1px solid #ddd;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.3s ease-out;
-}
-
-.results-container h2 {
-  margin: 0 0 15px;
-  font-size: 26px;
-  font-weight: 700;
-  color: #333;
-  /* border-bottom: 2px solid #93b5da; */
-  padding-bottom: 10px;
-}
-
-.results-container p {
-  margin: 10px 0;
-  font-size: 18px;
-  color: #555;
-}
-
-.results-container strong {
-  color: #318aea;
-}
-
-.results-container .result-item {
-  margin: 10px 0;
-  font-size: 18px;
-  color: #555;
-  display: flex;
-  justify-content: space-between;
-}
-
-.results-container .result-item span {
-  font-weight: 500;
-}
-
-.results-container .result-item .value {
-  font-weight: 700;
-}
-
-h2 {
-  margin: 0 0 20px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #333;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  font-weight: 500;
-  animation: fadeIn 0.3s ease-out;
+.question-container {
+  margin-bottom: 10px;
+  animation: fadeIn 0.5s ease-out;
 }
 
 input, select {
-  margin-top: 5px;
+  margin-top: 10px;
   padding: 10px;
+  margin:10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -139,37 +71,26 @@ input:focus, select:focus {
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
-button {
-  margin: 10px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #000;
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+/* Results Section */
+.results-container {
+  padding: 20px;
+  /* background-color: #fff; */
+  /* border-radius: 8px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  text-align: center;
 }
 
-button:hover {
-  background-color: #333;
-  transform: scale(1.05);
+.results-container h2 {
+  font-size: 26px;
+  color: #333;
 }
 
-.error-message {
-  color: #dc3545;
-  margin-top: 10px;
-  font-size: 14px;
+.results-container .result-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-/* Keyframes for animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.results-container .result-item .value {
+  font-weight: bold;
 }

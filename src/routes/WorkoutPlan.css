@@ -30,7 +30,6 @@
 .workout-plan p {
   color: white;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add drop shadow to text */
 }
 
 .workout-plan h2 {
@@ -42,5 +41,5 @@
 .workout-plan p {
   font-size: 14px;
   line-height: 1.5;
-
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
 }
