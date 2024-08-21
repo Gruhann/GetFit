@@ -1,12 +1,17 @@
 
 import styled from "styled-components";
 
-const CalorieButton = ({ onClick }) => {
+
+interface CalorieButtonProps {
+  onClick: () => void;
+}
+
+const CalorieButton: React.FC<CalorieButtonProps> = ({ onClick }) => {
   return (
     <StyledWrapper>
       <div className="btn-conteiner">
         <a className="btn-content" onClick={onClick}>
-          <span className="btn-title">Open Calorie Calculator</span>
+          <span className="btn-title">Calculate now</span>
           <span className="icon-arrow">
             <svg
               width="66px"

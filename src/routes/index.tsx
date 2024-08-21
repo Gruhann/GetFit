@@ -1,10 +1,10 @@
 // WorkoutPlansContainer.js
 
 import { useNavigate } from 'react-router-dom';
-import WorkoutPlan from './WorkoutPlan';
-import './WorkoutPlan.css';
+import WorkoutPlan from './WorkoutPlan/WorkoutPlan';
+import './WorkoutPlan/WorkoutPlan.css';
 import './index.css'; // Import the CSS file for custom styles
-import CalorieButton from './CalorieButton';
+import CalorieButton from './CalorieCalculator/CalorieButton';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -115,7 +115,7 @@ function WorkoutPlansContainer() {
   const navigate = useNavigate();
 
   const handleShowCalculator = () => {
-    navigate('/calorie-calculator');
+    navigate('/calculator/calorie-calculator');
   };
 
 
@@ -123,7 +123,7 @@ function WorkoutPlansContainer() {
     <>
       <div className="intro-container">
       <h1 className="centered-text">
-  <span className="custom-text">GetFit</span> with customised Workout Plans
+  <span className="custom-text">GetFit</span> <br/>with customised Workout Plans
 </h1>
         <h2 className="centered-text">
           Experience personalized fitness with expertly 
