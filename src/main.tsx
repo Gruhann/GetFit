@@ -15,6 +15,7 @@ import SignInPage from './routes/Auth/sign-in';
 import SignUpPage from './routes/Auth/sign-up';
 import DashboardPage from './routes/Dashboard/dashboard';
 import CalorieCalculatorPage from './routes/CalorieCalculator/CalorieCalculatorPage';
+import WorkoutPlanDetails from './routes/WorkoutPlan/WorkoutPlanDetails';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: '/contact', element: <ContactPage /> },
       { path: '/sign-in', element: <SignInPage /> },
       { path: '/sign-up', element: <SignUpPage /> },
+      { path: "/workout/:id" ,element:<WorkoutPlanDetails />},
 
       {
         element: <DashboardLayout />,
