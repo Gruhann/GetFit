@@ -2,8 +2,6 @@
 body {
   font-style: bold;
   margin:10px;
-  max-width: 100%;
-  
 }
 .custom-text {
   color: rgb(132, 0, 234); /* Change to your preferred color */
@@ -36,7 +34,6 @@ p {
   
   .centered-text {
     text-align: center;
-    margin: 20px 0;
     font-style: bold;
 
   }

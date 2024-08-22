@@ -5,8 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 // Import the layouts
 import RootLayout from './layouts/root-layout';
-import DashboardLayout from './layouts/dashboard-layout';
-import CalculatorLayout from './layouts/Calculator-layout';
+import AuthWrapper from './layouts/AuthWrapper';
 
 // Import the components
 import IndexPage from './routes';
@@ -16,6 +15,9 @@ import SignUpPage from './routes/Auth/sign-up';
 import DashboardPage from './routes/Dashboard/dashboard';
 import CalorieCalculatorPage from './routes/CalorieCalculator/CalorieCalculatorPage';
 import WorkoutPlanDetails from './routes/WorkoutPlan/WorkoutPlanDetails';
+import { ClerkProvider } from '@clerk/clerk-react';
+
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 const router = createBrowserRouter([
   {
@@ -25,21 +27,31 @@ const router = createBrowserRouter([
       { path: '/contact', element: <ContactPage /> },
       { path: '/sign-in', element: <SignInPage /> },
       { path: '/sign-up', element: <SignUpPage /> },
-      { path: "/workout/:id" ,element:<WorkoutPlanDetails />},
 
+      // Wrapped routes
       {
-        element: <DashboardLayout />,
-        path: 'dashboard',
-        children: [
-          { path: '', element: <DashboardPage /> }, // Empty string for relative path
-        ],
+        path: '/dashboard',
+        element: (
+          <AuthWrapper>
+            <DashboardPage />
+          </AuthWrapper>
+        ),
       },
       {
-        element: <CalculatorLayout />,
-        path: 'calculator',
-        children: [
-          { path: 'calorie-calculator', element: <CalorieCalculatorPage /> }, // Path relative to 'calculator'
-        ],
+        path: '/calculator',
+        element: (
+          <AuthWrapper>
+            <CalorieCalculatorPage />
+          </AuthWrapper>
+        ),
+      },
+      {
+        path: '/workout/:id',
+        element: (
+          <AuthWrapper>
+            <WorkoutPlanDetails />
+          </AuthWrapper>
+        ),
       },
     ],
   },
@@ -47,6 +59,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+      <RouterProvider router={router} />
+    </ClerkProvider>
   </React.StrictMode>,
 );

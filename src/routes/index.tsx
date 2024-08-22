@@ -9,6 +9,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import workoutPlans from "./WorkoutPlan/WorkoutPlans.tsx"; 
+import Footer from './Footer/Footer.tsx';
 
 
 function WorkoutPlansContainer() {
@@ -54,7 +55,7 @@ function WorkoutPlansContainer() {
   const navigate = useNavigate();
 
   const handleShowCalculator = () => {
-    navigate('/calculator/calorie-calculator');
+    navigate('/calculator');
   };
 
 
@@ -65,9 +66,7 @@ function WorkoutPlansContainer() {
   <span className="custom-text">GetFit</span> <br/>with customised Workout Plans
 </h1>
         <h2 className="centered-text">
-          Experience personalized fitness with expertly 
-          designed workout plans tailored to your goals and fitness level.<br/>
-          Track your progress, stay motivated, and adapt plans to your lifestyle.
+        Personalized workouts tailored to your goals. Track progress, stay motivated, and adapt plans.
         </h2>
         <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
         <h3 className='left-text'>Explore workouts</h3>
@@ -85,6 +84,15 @@ function WorkoutPlansContainer() {
         <CalorieButton onClick={handleShowCalculator} />
         </div>
       </div>
+      <div>
+      {/* Your website content here */}
+      <Footer
+        email="GetFit@gmail.com"
+        phoneNumber="99999-99999"
+        instagramLink="https://www.instagram.com/yourbusiness"
+        twitterLink="https://www.twitter.com/yourbusiness"
+      />
+    </div>
     </>
   );
 }

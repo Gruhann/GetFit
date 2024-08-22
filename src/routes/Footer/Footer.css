@@ -1,0 +1,49 @@
+footer {
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+  
+  .contact {
+    margin-bottom: 20px;
+  }
+  
+  .legal {
+    font-size: 0.8em;
+  }
+  
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+  }
+  
+  .fab {
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+  
+  /* Additional styles */
+  
+  footer {
+    background-color: #f5f5f5; /* Light gray background */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+  }
+  
+  .contact, .legal {
+    margin: 0 20px; /* Add horizontal margin for spacing */
+  }
+  
+  .legal {
+    margin-top: 10px; /* Add top margin for spacing */
+  }
+  
+  .copyright {
+    font-size: 0.7em;
+    margin-left: 10px; /* Add left margin for spacing */
+  }
