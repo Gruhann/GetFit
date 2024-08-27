@@ -71,7 +71,7 @@ const StyledWrapper = styled.div`
   font-weight: 600;
   font-size: 16px;
   color: var(--color-text);
-  background: var(--color-background);
+  background: linear-gradient(45deg, rgb(132, 0, 234), rgb(155, 50, 255), rgb(180, 100, 255));
   transition: 1s;
   border-radius: 100px;
   box-shadow: 0 0 0.2em 0 var(--color-background);

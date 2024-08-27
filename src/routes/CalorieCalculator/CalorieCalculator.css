@@ -36,14 +36,16 @@ button {
   border: none;
   border-radius: 50px;
   color: #fff;
-  background-color: #000000;
+  background: linear-gradient(45deg, rgb(132, 0, 234), rgb(155, 50, 255), rgb(180, 100, 255));
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #2c2c2c;
+  transform: scale(1.1);
+  background: linear-gradient(45deg, rgb(155, 50, 255), rgb(180, 100, 255), rgb(200, 150, 255));
+  
 }
 
 /* Additional styles */
@@ -74,9 +76,6 @@ input:focus, select:focus {
 /* Results Section */
 .results-container {
   padding: 20px;
-  /* background-color: #fff; */
-  /* border-radius: 8px; */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   text-align: center;
 }
 

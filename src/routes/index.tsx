@@ -10,13 +10,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import workoutPlans from "./WorkoutPlan/WorkoutPlans.tsx"; 
 import Footer from './Footer/Footer.tsx';
-
+import { SignedOut } from '@clerk/clerk-react';
+import dietPlans from "./DietPlan/DietPlans";
+import DietPlan from './DietPlan/DietPlan.tsx';
 
 function WorkoutPlansContainer() {
-
-
   const settings = {
-    
     dots: true,
     infinite: true,
     speed: 500,
@@ -38,7 +37,7 @@ function WorkoutPlansContainer() {
       {
         breakpoint: 768, // Mobile view
         settings: {
-          slidesToShow: 1, // Show 2 slides on mobile view
+          slidesToShow: 1, // Show 1 slide on mobile view
           slidesToScroll: 1
         }
       },
@@ -58,41 +57,62 @@ function WorkoutPlansContainer() {
     navigate('/calculator');
   };
 
+  const handleSignInRedirect = () => {
+    navigate('/sign-in');
+  };
 
   return (
     <>
       <div className="intro-container">
-      <h1 className="centered-text">
-  <span className="custom-text">GetFit</span> <br/>with customised Workout Plans
-</h1>
+        <div className="header-container">
+        <h1 className="centered-text">
+          <span className="custom-text">GetFit</span> <br />with customised Workout Plans
+        </h1>
         <h2 className="centered-text">
-        Personalized workouts tailored to your goals. Track progress, stay motivated, and adapt plans.
+          Personalized workouts tailored to your goals. Track progress, stay motivated, and adapt plans.
         </h2>
         <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
-        <h3 className='left-text'>Explore workouts</h3>
+        <SignedOut>
+          <button className="get_started" onClick={handleSignInRedirect}>Get started</button>
+        </SignedOut>
+
+        {/* ADD A SECTION THAT CONTAINS TO TRACK THE USER WORKOUTS  */}
+
+        <h3 className='left-text'>Explore Workout Plans</h3>
+        </div>
         <Slider {...settings} className="workout-cards">
           {workoutPlans.map(plan => (
-            <div key={plan.id}>
+            <div key={plan.id} className="slick-slide">
               <WorkoutPlan plan={plan} />
             </div>
           ))}
         </Slider>
       </div>
       <div>
-        <h2 className="centered-text" ><span className='calcCal'>Calculate Calories and Macro nutrients</span></h2>
+        <h3 className='header-container'>Explore Diet Plans</h3>
+        
+        <Slider {...settings} className="workout-cards">
+          {dietPlans.map(plan => (
+            <div key={plan.id} className="slick-slide">
+              <DietPlan plan={plan} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      <div>
+        <h2 className="centered-text"><span className='calcCal'>Calculate Calories and Macro nutrients</span></h2>
         <div className="calculator-button-container">
-        <CalorieButton onClick={handleShowCalculator} />
+          <CalorieButton onClick={handleShowCalculator} />
         </div>
       </div>
-      <div>
-      {/* Your website content here */}
+      
       <Footer
         email="GetFit@gmail.com"
         phoneNumber="99999-99999"
         instagramLink="https://www.instagram.com/yourbusiness"
         twitterLink="https://www.twitter.com/yourbusiness"
       />
-    </div>
     </>
   );
 }
