@@ -64,6 +64,7 @@ function WorkoutPlansContainer() {
   return (
     <>
       <div className="intro-container">
+      <SignedOut>
         <div className="header-container">
         <h1 className="centered-text">
           <span className="custom-text">GetFit</span> <br />with customised Workout Plans
@@ -72,14 +73,19 @@ function WorkoutPlansContainer() {
           Personalized workouts tailored to your goals. Track progress, stay motivated, and adapt plans.
         </h2>
         <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
-        <SignedOut>
           <button className="get_started" onClick={handleSignInRedirect}>Get started</button>
+        </div>
         </SignedOut>
 
-        {/* ADD A SECTION THAT CONTAINS TO TRACK THE USER WORKOUTS  */}
-
-        <h3 className='left-text'>Explore Workout Plans</h3>
+      </div>
+      <div>
+        <h2 className="centered-text"><span className='calcCal'>Calculate Calories and Macro nutrients</span></h2>
+        <div className="calculator-button-container">
+          <CalorieButton onClick={handleShowCalculator} />
         </div>
+      </div>
+      <div>
+      <h3 className='header-container'>Explore Workout Plans</h3>
         <Slider {...settings} className="workout-cards">
           {workoutPlans.map(plan => (
             <div key={plan.id} className="slick-slide">
@@ -87,8 +93,7 @@ function WorkoutPlansContainer() {
             </div>
           ))}
         </Slider>
-      </div>
-      <div>
+
         <h3 className='header-container'>Explore Diet Plans</h3>
         
         <Slider {...settings} className="workout-cards">
@@ -100,12 +105,7 @@ function WorkoutPlansContainer() {
         </Slider>
       </div>
 
-      <div>
-        <h2 className="centered-text"><span className='calcCal'>Calculate Calories and Macro nutrients</span></h2>
-        <div className="calculator-button-container">
-          <CalorieButton onClick={handleShowCalculator} />
-        </div>
-      </div>
+      
       
       <Footer
         email="GetFit@gmail.com"

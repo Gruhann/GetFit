@@ -16,6 +16,7 @@ import DashboardPage from './routes/Dashboard/dashboard';
 import CalorieCalculatorPage from './routes/CalorieCalculator/CalorieCalculatorPage';
 import WorkoutPlanDetails from './routes/WorkoutPlan/WorkoutPlanDetails';
 import { ClerkProvider } from '@clerk/clerk-react';
+import DietPlanDetails from './routes/DietPlan/DietPlanDetails';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
         element: (
           <AuthWrapper>
             <WorkoutPlanDetails />
+          </AuthWrapper>
+        ),
+      },
+      {
+        path: '/diet/:id',
+        element: (
+          <AuthWrapper>
+            <DietPlanDetails />
           </AuthWrapper>
         ),
       },

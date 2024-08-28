@@ -8,6 +8,21 @@ interface WorkoutPlanProps {
         title: string;
         description: string;
         image: string;
+        instructions: {
+            step: number;
+            exercise: string;
+            sets: number;
+            reps: string; // Adjust data type if needed
+            rest: string;
+            image: string;
+            description: string;
+        }[];
+        equipment: string[];
+        benefits: string[];
+        targetMuscles: string[];
+        safetyPrecautions: string[];
+        duration: number; // Adjust data type if needed
+        frequency: string; // Adjust data type if needed
       };
   }
 

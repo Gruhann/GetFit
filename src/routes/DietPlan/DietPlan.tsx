@@ -1,4 +1,5 @@
 // DietPlan.tsx
+import { useNavigate } from "react-router-dom";
 
 import React from 'react';
 import './DietPlan.css';
@@ -13,9 +14,14 @@ type DietPlanProps = {
 };
 
 const DietPlan: React.FC<DietPlanProps> = ({ plan }) => {
+  const navigate = useNavigate();
+
+  const handleClick=()=>{
+    navigate(`/diet/${plan.id}`);
+  }
   return (
     <div>
-    <div className="diet-plan" style={{ backgroundImage: `url(${plan.image})` }} >
+    <div onClick={handleClick} className="diet-plan"  style={{ backgroundImage: `url(${plan.image})` }} >
       <h2><strong>{plan.title}</strong></h2>
       {/* <img src={plan.image} alt={plan.title} /> */}
       <p>{plan.description}</p>

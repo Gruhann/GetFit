@@ -12,9 +12,8 @@ export default function RootLayout() {
       <header className="header">
         <nav className="navbar">
         <div className="logo-container">
-          <img src="/assets/GetFit-logo.png" alt="GetFit Logo" width="40" height="40" />
+          <span className="custom-text">GetFit</span>
         </div>
-          
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/contact">Contact</Link></li>

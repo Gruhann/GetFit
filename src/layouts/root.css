@@ -31,9 +31,16 @@
 }
 
 .header {
-  width: 100%; /* Ensure header takes full width */
+  width: 100%; 
 }
 
+.custom-text {
+  color: rgb(132, 0, 234);
+  padding:0px;
+  font-weight: 800;
+  font-size: 2rem !important; /* Adjust the value as needed */
+  margin: 0 !important;
+}
 body {
   margin: 0;
   font-weight: 500;
