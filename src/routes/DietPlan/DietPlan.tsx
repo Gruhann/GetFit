@@ -23,7 +23,6 @@ const DietPlan: React.FC<DietPlanProps> = ({ plan }) => {
     <div>
     <div onClick={handleClick} className="diet-plan"  style={{ backgroundImage: `url(${plan.image})` }} >
       <h2><strong>{plan.title}</strong></h2>
-      {/* <img src={plan.image} alt={plan.title} /> */}
       <p>{plan.description}</p>
     </div>
     </div>

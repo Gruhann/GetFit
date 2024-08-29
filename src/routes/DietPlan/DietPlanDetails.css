@@ -1,0 +1,93 @@
+/* DietPlanDetails.css */
+
+/* Main container for the diet plan */
+.dietplan {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: start;
+  }
+  
+  b{
+    color: rgb(132, 0, 234) !important;
+  }
+  /* Container for each day's plan */
+  .itinerary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between day plans */
+  }
+  
+  .day-plan {
+    flex: 1 1 calc(50% - 20px); /* 50% width minus gap */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .day-plan h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  /* Styling for individual meal details */
+  .meal {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .meal h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #444;
+  }
+  
+  .meal p {
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  /* Average macronutrients and tips */
+  .average-macronutrients,
+  .tips {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .average-macronutrients h3,
+  .tips h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #444;
+  }
+  
+  .average-macronutrients p,
+  .tips p {
+    color: #555;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .itinerary {
+      flex-direction: column;
+    }
+  
+    .day-plan {
+      flex: 1 1 100%; /* Full width on smaller screens */
+    }
+  }
+  

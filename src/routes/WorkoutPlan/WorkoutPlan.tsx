@@ -12,7 +12,7 @@ interface WorkoutPlanProps {
             step: number;
             exercise: string;
             sets: number;
-            reps: string; // Adjust data type if needed
+            reps: string; 
             rest: string;
             image: string;
             description: string;
@@ -21,8 +21,8 @@ interface WorkoutPlanProps {
         benefits: string[];
         targetMuscles: string[];
         safetyPrecautions: string[];
-        duration: number; // Adjust data type if needed
-        frequency: string; // Adjust data type if needed
+        duration: number; 
+        frequency: string; 
       };
   }
 
@@ -36,8 +36,7 @@ function WorkoutPlan({ plan }:WorkoutPlanProps ) {
   return (
     <div>
     <div onClick={handleClick} className="workout-plan" style={{ backgroundImage: `url(${plan.image})` }} >
-      <h2><strong>{plan.title}</strong></h2>
-      {/* <img src={plan.image} alt={plan.title} /> */}
+      <h2 ><strong>{plan.title}</strong></h2>
       <p>{plan.description}</p>
     </div>
     </div>

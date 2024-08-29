@@ -5,14 +5,14 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 
 
 export default function RootLayout() {
-  // const navigate = useNavigate()
-
   return (
   
       <header className="header">
         <nav className="navbar">
         <div className="logo-container">
-          <span className="custom-text">GetFit</span>
+        <Link to="/" className="custom-text">
+            GetFit
+          </Link>
         </div>
           <ul>
             <li><Link to="/">Home</Link></li>

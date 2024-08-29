@@ -1,27 +1,32 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import workoutPlans from "./WorkoutPlans";
+import './WorkoutPlanDetails.css';
+import Footer from "../Footer/Footer";
 
 interface WorkoutPlan {
   id: number;
   title: string;
   description: string;
   image: string;
-  instructions: {
-    step: number;
-    exercise: string;
-    sets: number;
-    reps: string;
-    rest: string;
-    image: string;
-    description: string;
+  days: {
+    day: number;
+    title: string;
+    warmUp: {
+      description: string;
+      duration: string;
+    };
+    workout: {
+      exercise: string;
+      instructions: string;
+      tips: string;
+    }[];
+    coolDown: {
+      description: string;
+      duration: string;
+    };
+    activity: string;
   }[];
-  equipment: string[];
-  benefits: string[];
-  targetMuscles: string[];
-  safetyPrecautions: string[];
-  duration: number;
-  frequency: string;
 }
 
 function WorkoutPlanDetails() {
@@ -39,63 +44,41 @@ function WorkoutPlanDetails() {
 
   return (
     <div>
-      <h1>{plan.title}</h1>
-      <p>{plan.description}</p>
-      <div>
-        <h2>Instructions</h2>
-        <ol>
-          {plan.instructions.map((instruction, index) => (
-            <li key={index}>
-              <strong>Step {instruction.step}</strong>: {instruction.exercise}
-              <br />
-              Sets: {instruction.sets}, Reps: {instruction.reps}, Rest: {instruction.rest} seconds
-              <br />
-              <img src={instruction.image} alt={instruction.exercise} />
-              <p>{instruction.description}</p>
-            </li>
-          ))}
-        </ol>
+      <h1 className="workout-plan-container">{plan.title}</h1>
+      <div className="PlanDetails">
+        {plan.days.map((day) => (
+          <div key={day.day} className="day-details">
+            <h2>Day {day.day} {day.title}</h2>
+            <div className="workout-box">
+              <h3>Warm-Up</h3>
+              <p>{day.warmUp.description}</p>
+              <p><b>Duration:</b> {day.warmUp.duration}</p>
+            </div>
+            {day.workout.map((exercise, index) => (
+              <div key={index} className="workout-box">
+                <h3>{exercise.exercise}</h3>
+                <p><b>Instructions:</b> {exercise.instructions}</p>
+                <p><b>Tips:</b> {exercise.tips}</p>
+              </div>
+            ))}
+            <div className="workout-box">
+              <h3>Cool-Down</h3>
+              <p>{day.coolDown.description}</p>
+              <p><b>Duration:</b> {day.coolDown.duration}</p>
+            </div>
+            <div className="workout-box">
+              <h3>Activity</h3>
+              <p>{day.activity}</p>
+            </div>
+          </div>
+        ))}
       </div>
-      <div>
-        <h2>Equipment</h2>
-        <ul>
-          {plan.equipment.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2>Benefits</h2>
-        <ul>
-          {plan.benefits.map((benefit, index) => (
-            <li key={index}>{benefit}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2>Target Muscles</h2>
-        <ul>
-          {plan.targetMuscles.map((muscle, index) => (
-            <li key={index}>{muscle}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2>Safety Precautions</h2>
-        <ul>
-          {plan.safetyPrecautions.map((precaution, index) => (
-            <li key={index}>{precaution}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2>Duration</h2>
-        <p>{plan.duration} minutes</p>
-      </div>
-      <div>
-        <h2>Frequency</h2>
-        <p>{plan.frequency}</p>
-      </div>
+      <Footer 
+      email="GetFit@gmail.com"
+      phoneNumber="99999-99999"
+      instagramLink="https://www.instagram.com/yourbusiness"
+      twitterLink="https://www.twitter.com/yourbusiness"
+      />
     </div>
   );
 }

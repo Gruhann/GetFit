@@ -1,17 +1,17 @@
 // WorkoutPlansContainer.js
 
 import { useNavigate } from 'react-router-dom';
-import WorkoutPlan from './WorkoutPlan/WorkoutPlan';
+import WorkoutPlan from './WorkoutPlan/WorkoutPlan.tsx';
 import './WorkoutPlan/WorkoutPlan.css';
 import './index.css'; // Import the CSS file for custom styles
-import CalorieButton from './CalorieCalculator/CalorieButton';
+import CalorieButton from './CalorieCalculator/CalorieButton.tsx';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import workoutPlans from "./WorkoutPlan/WorkoutPlans.tsx"; 
 import Footer from './Footer/Footer.tsx';
-import { SignedOut } from '@clerk/clerk-react';
-import dietPlans from "./DietPlan/DietPlans";
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
+import dietPlans from "./DietPlan/DietPlans.tsx";
 import DietPlan from './DietPlan/DietPlan.tsx';
 
 function WorkoutPlansContainer() {
@@ -58,26 +58,44 @@ function WorkoutPlansContainer() {
   };
 
   const handleSignInRedirect = () => {
-    navigate('/sign-in');
+    navigate('/sign-up');
   };
 
   return (
     <>
-      <div className="intro-container">
-      <SignedOut>
-        <div className="header-container">
-        <h1 className="centered-text">
-          <span className="custom-text">GetFit</span> <br />with customised Workout Plans
-        </h1>
-        <h2 className="centered-text">
-          Personalized workouts tailored to your goals. Track progress, stay motivated, and adapt plans.
-        </h2>
-        <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
-          <button className="get_started" onClick={handleSignInRedirect}>Get started</button>
-        </div>
-        </SignedOut>
-
+     <div className="intro-container">
+  <SignedOut>
+    <div className="header-container">
+      <h1 className="centered-text">
+        <span className="customtext">GetFit</span> <br/>with customised Workout Plans
+      </h1>
+      <h2 className="centered-text">
+        Personalized workouts tailored to your goals. Track progress, stay motivated, and adapt plans.
+      </h2>
+      <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
+      <button className="get_started" onClick={handleSignInRedirect}>Get started</button>
+    </div>
+    <br/>
+    
+    <h1>Steps to <strong className="highlighted-text">GetFit</strong></h1>
+    <div className="fitness-steps-container">
+      <div className="fitness-step-box">
+        <strong className="highlighted-text">Set Goals & Assess:</strong> Define clear goals and assess current fitness level.
       </div>
+      <div className="fitness-step-box">
+        <strong className="highlighted-text">Workout & Diet:</strong> Create a balanced workout plan with cardio, strength training, and flexibility. Follow a nutrient-dense diet.
+      </div>
+      <div className="fitness-step-box">
+        <strong className="highlighted-text">Track & Adjust:</strong> Monitor progress, adjust workouts and diet as needed.
+      </div>
+      <div className="fitness-step-box">
+        <strong className="highlighted-text">Consistency & Recovery:</strong> Stay consistent, prioritize rest, and mental health.
+      </div>
+    </div>
+  </SignedOut>
+</div>
+
+      <SignedIn>
       <div>
         <h2 className="centered-text"><span className='calcCal'>Calculate Calories and Macro nutrients</span></h2>
         <div className="calculator-button-container">
@@ -104,7 +122,7 @@ function WorkoutPlansContainer() {
           ))}
         </Slider>
       </div>
-
+      </SignedIn>
       
       
       <Footer

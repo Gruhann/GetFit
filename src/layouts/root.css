@@ -1,20 +1,25 @@
+.header {
+  width: 100%;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between; /* Align items to left and right */
+  align-items: center; /* Center items vertically */
   padding: 10px;
-  width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
-  font-style: bold;
 }
 
 .navbar .logo-container {
+  flex: 1; /* Pushes the logo to the left */
   margin-right: 1rem; /* Add space between logo and nav links */
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   margin: 0;
   padding: 0;
 }
@@ -23,24 +28,19 @@
   color: rgb(0, 0, 0); /* Override global link color */
   text-decoration: none;
   font-weight: 700;
-  font-style: bold;
 }
 
 .navbar a:hover {
   color: #444444; /* Override hover color */
 }
-
-.header {
-  width: 100%; 
-}
-
 .custom-text {
-  color: rgb(132, 0, 234);
-  padding:0px;
-  font-weight: 800;
-  font-size: 2rem !important; /* Adjust the value as needed */
-  margin: 0 !important;
+  color: rgb(132, 0, 234) !important;
+  font-weight: 800 !important;
+  font-size: 1.5rem !important; /* Adjust the value as needed */
+  margin: 0;
+  
 }
+
 body {
   margin: 0;
   font-weight: 500;
