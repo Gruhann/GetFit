@@ -8,7 +8,7 @@ import RootLayout from './layouts/root-layout';
 import AuthWrapper from './layouts/AuthWrapper';
 
 // Import the components
-import IndexPage from './routes/Index';
+import IndexPage from './routes/index';
 import ContactPage from './routes/Contact/contact';
 import SignInPage from './routes/Auth/sign-in';
 import SignUpPage from './routes/Auth/sign-up';
