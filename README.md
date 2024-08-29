@@ -1,50 +1,12 @@
-# React + TypeScript + Vite
+# GetFit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **GetFit**! This application is designed to help users select personalized workout plans, diet plans, calculate their calories and macronutrient needs, and follow them to achieve their fitness goals.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Personalized Workout Plans:** Users can choose from various workout plans tailored to their fitness levels and goals, whether it's weight loss, muscle gain, or general fitness.
+- **Custom Diet Plans:** Access a variety of diet plans that are customized to your dietary preferences and goals. Each plan includes detailed daily itineraries with meals, quantities, preparation methods, and macronutrient breakdowns.
+- **Calorie & Macronutrient Calculator:** Easily calculate your daily caloric needs and macronutrient distribution based on your personal details (age, weight, height, activity level) and goals.
+- **Progress Tracking:** Keep track of your progress, monitor your achievements, and adjust your plans as needed.
+- **Community & Testimonials:** Share your experience, connect with other users, and read testimonials from those who have succeeded with GetFit.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
