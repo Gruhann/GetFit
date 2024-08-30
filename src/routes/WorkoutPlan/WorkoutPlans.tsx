@@ -197,9 +197,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -377,9 +380,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -526,9 +532,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -703,9 +712,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -867,9 +879,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -999,9 +1014,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -1161,9 +1179,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -1297,9 +1318,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -1489,9 +1513,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]
@@ -1641,9 +1668,12 @@ const workoutPlans= [
       {
         day: 7,
         title: "Rest",
-        warmUp: {},
-        workout: [],
-        coolDown: {},
+        warmUp: {description:"", duration: ""},
+        workout: [
+          {exercise: "",
+          instructions: "",
+          tips: ""}],
+        coolDown: {description:"", duration: ""},
         activity: "Full Rest"
       }
     ]

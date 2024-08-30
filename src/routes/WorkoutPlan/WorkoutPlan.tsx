@@ -1,32 +1,35 @@
 import { useNavigate } from "react-router-dom";
+import "./WorkoutPlan.css";
 
-import "./WorkoutPlan.css"
-
+// Adjusted interface to match the new data structure
 interface WorkoutPlanProps {
-    plan: {
-        id: number;
-        title: string;
+  plan: {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    days: {
+      day: number;
+      title: string;
+      warmUp: {
         description: string;
-        image: string;
-        instructions: {
-            step: number;
-            exercise: string;
-            sets: number;
-            reps: string; 
-            rest: string;
-            image: string;
-            description: string;
-        }[];
-        equipment: string[];
-        benefits: string[];
-        targetMuscles: string[];
-        safetyPrecautions: string[];
-        duration: number; 
-        frequency: string; 
+        duration: string;
       };
-  }
+      workout: {
+        exercise: string;
+        instructions: string;
+        tips: string;
+      }[];
+      coolDown: {
+        description: string;
+        duration: string;
+      };
+      activity: string;
+    }[];
+  };
+}
 
-function WorkoutPlan({ plan }:WorkoutPlanProps ) {
+function WorkoutPlan({ plan }: WorkoutPlanProps) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -34,13 +37,10 @@ function WorkoutPlan({ plan }:WorkoutPlanProps ) {
   };
 
   return (
-    <div>
-    <div onClick={handleClick} className="workout-plan" style={{ backgroundImage: `url(${plan.image})` }} >
-      <h2 ><strong>{plan.title}</strong></h2>
+    <div onClick={handleClick} className="workout-plan" style={{ backgroundImage: `url(${plan.image})` }}>
+      <h2><strong>{plan.title}</strong></h2>
       <p>{plan.description}</p>
     </div>
-    </div>
-    
   );
 }
 
