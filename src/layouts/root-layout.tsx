@@ -1,7 +1,7 @@
 import "./root.css";
 import { Link, Outlet } from 'react-router-dom'
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
-
+import { Analytics } from "@vercel/analytics/react"
 
 
 export default function RootLayout() {
@@ -29,6 +29,7 @@ export default function RootLayout() {
       <main>
         <Outlet />
       </main>
+      <Analytics />
       </header> 
   )
 }
