@@ -55,6 +55,7 @@ function WorkoutPlanDetails() {
   return (
     <div>
       <h1 className="workout-plan-container">{plan.title}</h1>
+      <div className="stepper-container">
       <Stepper activeStep={curStep} alternativeLabel connector={<CustomConnector />}>
         {plan.days.map((day, index) => (
           <Step key={day.day} onClick={() => setCurStep(index)} className={`step-button ${curStep === index ? "active" : ""}`}>
@@ -62,6 +63,7 @@ function WorkoutPlanDetails() {
           </Step>
         ))}
       </Stepper>
+      </div>
       <div className="PlanDetails">
         {plan.days[curStep] && (
           <div key={plan.days[curStep].day} className="day-details">

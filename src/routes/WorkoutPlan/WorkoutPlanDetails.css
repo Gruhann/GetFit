@@ -123,3 +123,30 @@ b{
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
+
+.stepper-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent text wrapping */
+  padding: 10px;
+  display: flex; /* Ensure container respects flex items */
+}
+
+.MuiStepper-root {
+  display: flex; /* Ensure the stepper is displayed as flex items */
+  align-items: center; /* Center items vertically */
+  flex-wrap: nowrap; /* Prevent wrapping of steps */
+}
+.MuiStep-root {
+  flex: 1 0 auto; /* Flex items should grow as needed */
+  min-width: 100px; /* Set minimum width for each step */
+  overflow: hidden; /* Hide overflowed text */
+  text-align: center; /* Center text */
+}
+.step-button {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  padding: 10px;
+}

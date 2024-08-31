@@ -98,6 +98,7 @@ function DietPlanDetails() {
   return (
     <div>
       <h1 className="diet-plan-container">{plan.title}</h1>
+      <div className="stepper-container">
       <Stepper activeStep={curStep} alternativeLabel connector={<CustomConnector />}>
         {plan.itinerary.map((dayPlan, index) => (
           <Step key={dayPlan.day} onClick={() => setCurStep(index)} className={`step-button ${curStep === index ? "active" : ""}`}>
@@ -105,6 +106,7 @@ function DietPlanDetails() {
           </Step>
         ))}
       </Stepper>
+      </div>
       <div className="PlanDetails">
         {plan.itinerary[curStep] && (
           <div key={plan.itinerary[curStep].day} className="day-details">
