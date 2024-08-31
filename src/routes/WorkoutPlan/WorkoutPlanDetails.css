@@ -1,10 +1,32 @@
 /* WorkoutPlanDetails.css */
 
 .PlanDetails {
+  margin-top:20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px; /* Space between elements */
+}
+
+.step-button {
+  background-color: rgb(171, 114, 215); /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* Remove border */
+  border-radius: 15px; /* Border radius of 15px */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center; /* Center the text */
+  margin: 5px; /* Margin around each step */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.step-button:hover {
+  background-color: rgb(132, 0, 234); /* Darker green on hover */
+}
+
+.step-button.active {
+  background-color: rgb(132, 0, 234) !important;
+   /* Blue background for active step */
 }
 
 .workout-plan-container {
@@ -89,4 +111,15 @@
 }
 b{
   color: rgb(132, 0, 234) !important;
+}
+
+.back-to-top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }

@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import workoutPlans from "./WorkoutPlans";
 import './WorkoutPlanDetails.css';
 import Footer from "../Footer/Footer";
+import { Stepper, Step,StepConnector,styled } from "@mui/material"; // Import Stepper
 
 interface WorkoutPlan {
   id: number;
@@ -32,6 +33,7 @@ interface WorkoutPlan {
 function WorkoutPlanDetails() {
   const { id } = useParams<{ id: string }>();
   const [plan, setPlan] = useState<WorkoutPlan | undefined>();
+  const [curStep, setCurStep] = useState(0); // Current step state
 
   useEffect(() => {
     const foundPlan = workoutPlans.find((p) => p.id === parseInt(id!));
@@ -42,19 +44,34 @@ function WorkoutPlanDetails() {
     return <div>Plan not found</div>;
   }
 
+  const CustomConnector = styled(StepConnector)({
+    '& .MuiStepConnector-line': {
+      border: 'none', // Removes the connector line
+    },
+  });
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div>
       <h1 className="workout-plan-container">{plan.title}</h1>
+      <Stepper activeStep={curStep} alternativeLabel connector={<CustomConnector />}>
+        {plan.days.map((day, index) => (
+          <Step key={day.day} onClick={() => setCurStep(index)} className={`step-button ${curStep === index ? "active" : ""}`}>
+            <span>Day {day.day}</span>
+          </Step>
+        ))}
+      </Stepper>
       <div className="PlanDetails">
-        {plan.days.map((day) => (
-          <div key={day.day} className="day-details">
-            <h2>Day {day.day} {day.title}</h2>
+        {plan.days[curStep] && (
+          <div key={plan.days[curStep].day} className="day-details">
+            <h2>Day {plan.days[curStep].day} {plan.days[curStep].title}</h2>
             <div className="workout-box">
               <h3>Warm-Up</h3>
-              <p>{day.warmUp.description}</p>
-              <p><b>Duration:</b> {day.warmUp.duration}</p>
+              <p>{plan.days[curStep].warmUp.description}</p>
+              <p><b>Duration:</b> {plan.days[curStep].warmUp.duration}</p>
             </div>
-            {day.workout.map((exercise, index) => (
+            {plan.days[curStep].workout.map((exercise, index) => (
               <div key={index} className="workout-box">
                 <h3>{exercise.exercise}</h3>
                 <p><b>Instructions:</b> {exercise.instructions}</p>
@@ -63,21 +80,25 @@ function WorkoutPlanDetails() {
             ))}
             <div className="workout-box">
               <h3>Cool-Down</h3>
-              <p>{day.coolDown.description}</p>
-              <p><b>Duration:</b> {day.coolDown.duration}</p>
+              <p>{plan.days[curStep].coolDown.description}</p>
+              <p><b>Duration:</b> {plan.days[curStep].coolDown.duration}</p>
             </div>
             <div className="workout-box">
               <h3>Activity</h3>
-              <p>{day.activity}</p>
+              <p>{plan.days[curStep].activity}</p>
             </div>
           </div>
-        ))}
+        )}
+        
       </div>
+      <button className="back-to-top" onClick={scrollToTop}>^ Back to Top</button>
+
+      
       <Footer 
-      email="GetFit@gmail.com"
-      phoneNumber="99999-99999"
-      instagramLink="https://www.instagram.com/yourbusiness"
-      twitterLink="https://www.twitter.com/yourbusiness"
+        email="GetFit@gmail.com"
+        phoneNumber="99999-99999"
+        instagramLink="https://www.instagram.com/yourbusiness"
+        twitterLink="https://www.twitter.com/yourbusiness"
       />
     </div>
   );
