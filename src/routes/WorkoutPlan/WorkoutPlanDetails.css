@@ -128,7 +128,9 @@ b{
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent text wrapping */
   padding: 10px;
-  display: flex; /* Ensure container respects flex items */
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;/* Ensure container respects flex items */
 }
 
 .MuiStepper-root {
