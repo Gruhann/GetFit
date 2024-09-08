@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import dietPlans from "./DietPlans";
-import "./DietPlanDetails.css"
+import "./DietPlanDetails.css";
+import { useAuth } from '@clerk/clerk-react';
 import { Stepper, Step, StepConnector, styled } from "@mui/material";
-import Footer from "../Footer/Footer"; interface DietPlan {
+import Footer from "../Footer/Footer";
+import Notification from "../Notification/Notification";  // Import Notification
+
+
+interface DietPlan {
   id: number;
   title: string;
   description: string;
@@ -72,9 +77,11 @@ import Footer from "../Footer/Footer"; interface DietPlan {
 }
 
 function DietPlanDetails() {
+  const { userId } = useAuth();
   const { id } = useParams<{ id: string }>();
   const [plan, setPlan] = useState<DietPlan | undefined>();
   const [curStep, setCurStep] = useState(0); // Current step state
+  const [notification, setNotification] = useState<string | null>(null); // State for notification
 
   useEffect(() => {
     const foundPlan = dietPlans.find((p) => p.id === parseInt(id!));
@@ -95,9 +102,40 @@ function DietPlanDetails() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const addToDashboard = () => {
+
+    const existingPlans = JSON.parse(localStorage.getItem(`dashboardPlans_${userId}`) || '[]');
+    console.log('Existing Plans:', existingPlans);
+    const isAlreadyAdded = existingPlans.some((p: DietPlan) => p.id === plan.id);
+    console.log('Is Already Added:', isAlreadyAdded);
+
+    if (!isAlreadyAdded) {
+      existingPlans.push({
+        id: plan.id,
+        title: plan.title,
+        description: plan.description,
+        image: plan.image,
+        type: 'diet'
+      });
+      localStorage.setItem(`dashboardPlans_${userId}`, JSON.stringify(existingPlans));
+      setNotification(`${plan.title} added to the dashboard.`);
+      
+    } else {
+      setNotification(`${plan.title} is already in the dashboard.`);
+    }
+  };
+
   return (
     <div>
-      <h1 className="diet-plan-container">{plan.title}</h1>
+      {notification && (
+        <Notification message={notification} onClose={() => setNotification(null)} />
+      )}
+      <div className="header">
+        <h1 className="diet-plan-container">{plan.title}
+          <button className="add-to-dashboard" onClick={addToDashboard}>Add to Dashboard</button> 
+        </h1>
+      </div>
+
       <div className="stepper-container">
       <Stepper activeStep={curStep} alternativeLabel connector={<CustomConnector />}>
         {plan.itinerary.map((dayPlan, index) => (

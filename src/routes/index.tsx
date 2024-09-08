@@ -74,6 +74,7 @@ function WorkoutPlansContainer() {
       </h2>
       <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
       <button className="get_started" onClick={handleSignInRedirect}>Get started</button>
+      <p>If you already have an account login <a href="/sign-in"><u><b>here</b></u></a></p>
     </div>
     <br/>
     
@@ -128,8 +129,6 @@ function WorkoutPlansContainer() {
       <Footer
         email="GetFit@gmail.com"
         phoneNumber="99999-99999"
-        instagramLink="https://www.instagram.com/yourbusiness"
-        twitterLink="https://www.twitter.com/yourbusiness"
       />
     </>
   );

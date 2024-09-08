@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import workoutPlans from "./WorkoutPlans";
 import './WorkoutPlanDetails.css';
+import { useAuth } from '@clerk/clerk-react';
 import Footer from "../Footer/Footer";
-import { Stepper, Step,StepConnector,styled } from "@mui/material"; // Import Stepper
+import { Stepper, Step, StepConnector, styled } from "@mui/material"; 
+import Notification from "../Notification/Notification";  // Import Notification
 
 interface WorkoutPlan {
   id: number;
@@ -31,9 +33,11 @@ interface WorkoutPlan {
 }
 
 function WorkoutPlanDetails() {
+  const { userId } = useAuth();
   const { id } = useParams<{ id: string }>();
   const [plan, setPlan] = useState<WorkoutPlan | undefined>();
-  const [curStep, setCurStep] = useState(0); // Current step state
+  const [curStep, setCurStep] = useState(0);
+  const [notification, setNotification] = useState<string | null>(null); // State for notification
 
   useEffect(() => {
     const foundPlan = workoutPlans.find((p) => p.id === parseInt(id!));
@@ -44,25 +48,61 @@ function WorkoutPlanDetails() {
     return <div>Plan not found</div>;
   }
 
+  const addToDashboard = () => {
+
+    const existingPlans = JSON.parse(localStorage.getItem(`dashboardPlans_${userId}`) || '[]');
+    console.log('Existing Plans:', existingPlans);
+    const isAlreadyAdded = existingPlans.some((p: WorkoutPlan) => p.id === plan.id);
+    console.log('Is Already Added:', isAlreadyAdded);
+
+    if (!isAlreadyAdded) {
+      existingPlans.push({
+        id: plan.id,
+        title: plan.title,
+        description: plan.description,
+        image: plan.image,
+        type: 'workout'
+      });
+      localStorage.setItem(`dashboardPlans_${userId}`, JSON.stringify(existingPlans));
+      setNotification(`${plan.title} added to the dashboard.`);
+      
+    } else {
+      setNotification(`${plan.title} is already in the dashboard.`);
+    }
+  };
+
   const CustomConnector = styled(StepConnector)({
     '& .MuiStepConnector-line': {
-      border: 'none', // Removes the connector line
+      border: 'none', 
     },
   });
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <div>
-      <h1 className="workout-plan-container">{plan.title}</h1>
+      {notification && (
+        <Notification message={notification} onClose={() => setNotification(null)} />
+      )}
+
+      <div className="workout-plan-header">
+        <h1 className="workout-plan-container">
+          {plan.title}
+          <button className="add-to-dashboard" onClick={addToDashboard}>
+            Add to Dashboard
+          </button>
+        </h1>
+      </div>
       <div className="stepper-container">
-      <Stepper activeStep={curStep} alternativeLabel connector={<CustomConnector />}>
-        {plan.days.map((day, index) => (
-          <Step key={day.day} onClick={() => setCurStep(index)} className={`step-button ${curStep === index ? "active" : ""}`}>
-            <span>Day {day.day}</span>
-          </Step>
-        ))}
-      </Stepper>
+        <Stepper activeStep={curStep} alternativeLabel connector={<CustomConnector />}>
+          {plan.days.map((day, index) => (
+            <Step key={day.day} onClick={() => setCurStep(index)} className={`step-button ${curStep === index ? "active" : ""}`}>
+              <span>Day {day.day}</span>
+            </Step>
+          ))}
+        </Stepper>
       </div>
       <div className="PlanDetails">
         {plan.days[curStep] && (
@@ -91,11 +131,9 @@ function WorkoutPlanDetails() {
             </div>
           </div>
         )}
-        
       </div>
       <button className="back-to-top" onClick={scrollToTop}>^ Back to Top</button>
 
-      
       <Footer 
         email="GetFit@gmail.com"
         phoneNumber="99999-99999"

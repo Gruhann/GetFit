@@ -22,6 +22,7 @@ const workoutPlans= [
             exercise: "Push-Ups (or Knee Push-Ups if needed)",
             instructions: "Place your hands slightly wider than shoulder-width apart on the floor. Lower your body until your chest nearly touches the ground. Push back up to the starting position.",
             tips: "Keep your body in a straight line from head to heels. If standard push-ups are too challenging, perform them on your knees."
+
           },
           {
             exercise: "Dumbbell Deadlifts (light weight)",
