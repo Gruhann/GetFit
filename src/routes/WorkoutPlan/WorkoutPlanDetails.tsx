@@ -137,8 +137,6 @@ function WorkoutPlanDetails() {
       <Footer 
         email="GetFit@gmail.com"
         phoneNumber="99999-99999"
-        instagramLink="https://www.instagram.com/yourbusiness"
-        twitterLink="https://www.twitter.com/yourbusiness"
       />
     </div>
   );
