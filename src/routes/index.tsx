@@ -60,6 +60,9 @@ function WorkoutPlansContainer() {
   const handleSignInRedirect = () => {
     navigate('/sign-up');
   };
+  const handleSignin = () => {
+    navigate('/sign-in');
+  };
 
   return (
     <>
@@ -74,7 +77,7 @@ function WorkoutPlansContainer() {
       </h2>
       <p className="centered-text">Enjoy complementary nutrition guidance and connect with a supportive community.</p>
       <button className="get_started" onClick={handleSignInRedirect}>Get started</button>
-      <p>If you already have an account login <a href="/sign-in"><u><b>here</b></u></a></p>
+      <p>If you already have an account login <u><b onClick={handleSignin}>here</b></u></p>
     </div>
     <br/>
     

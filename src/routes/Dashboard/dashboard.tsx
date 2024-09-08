@@ -65,6 +65,9 @@ export default function DashboardPage() {
       ) : (
         <p className="centered-text">No plans added to the dashboard yet.</p>
       )}
+      <p className="centered-text">Plans added in dashboard from this device may not appear in other device as we use localStorage.</p>
+      <p className="centered-text">We will rectify this problem soon</p>
+
     </>
   );
 }

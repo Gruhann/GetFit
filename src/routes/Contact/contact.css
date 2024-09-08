@@ -33,19 +33,6 @@ body{
     border-radius: 8px;
   }
   
-  .submit-button {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .submit-button:hover {
-    background-color: #e64a19;
-  }
   
   .submission-confirmation {
     text-align: center;

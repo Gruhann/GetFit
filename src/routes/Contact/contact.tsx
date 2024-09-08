@@ -27,7 +27,6 @@ export default function ContactPage() {
     <div className="contact-container">
       <h1>Contact Us</h1>
       <p>We value your feedback! Please share your testimonial or suggestions below.</p>
-      <p>Backend is not yet initialised for this project, so your testimonials wont be saved.</p>
       
       {submitted ? (
         <div className="submission-confirmation">
@@ -72,6 +71,9 @@ export default function ContactPage() {
           <button type="submit" className="submit-button">Submit</button>
         </form>
       )}
+      <p>Your testimonials won't be saved.</p>
+      <p>We will rectify this problem soon</p>
+
     </div>
   );
 }
